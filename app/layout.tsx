@@ -20,10 +20,10 @@ const monoFont = Space_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "AriaDocs - Template",
-  metadataBase: new URL("https://ariadocs.vercel.app/"),
+  title: "Uploadthing UI - Docs",
+  metadataBase: new URL("https://docs-uploadthing-ui.vercel.app/"),
   description:
-    "This comprehensive documentation template, crafted with Next.js and available as open-source, delivers a sleek and responsive design, tailored to meet all your project documentation requirements.",
+    "This comprehensive documentation for uploadthing ui covers all the components, hooks, and utilities. Github link: https://github.com/webdevkaleem/uploadthing-ui-docs",
 };
 
 export default function RootLayout({
