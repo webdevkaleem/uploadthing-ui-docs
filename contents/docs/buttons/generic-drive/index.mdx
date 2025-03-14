@@ -3,6 +3,10 @@ title: Generic Drive
 description: This section previews the button generic drive component.
 ---
 
+## Preview
+
+<PreviewUTUIButtonGenericDrive />
+
 A custom `Generic Drive` button, which is the file upload workflow copied from drive upload applications like proton and gmail drive.
 
 ## About
@@ -152,6 +156,29 @@ export function useMediaQuery(query: string) {
 
   return value;
 }
+```
+
+Update inside of your `tailwind.config.ts`
+
+<Note type="info" title="Note about Tailwind Config">
+  The `chart` colors are used inside the `badge`. These colors are taken from
+  the `globals.css` in your project.
+</Note>
+
+```javascript:tailwind.config.ts showLineNumbers {4-10}
+export default {
+  theme: {
+    extend: {
+      chart: {
+        1: "hsl(var(--chart-1))",
+        2: "hsl(var(--chart-2))",
+        3: "hsl(var(--chart-3))",
+        4: "hsl(var(--chart-4))",
+        5: "hsl(var(--chart-5))",
+      },
+    },
+  },
+} satisfies Config;
 ```
 
 Add inside of your `client` component
