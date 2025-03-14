@@ -1,0 +1,111 @@
+---
+title: Installation
+description: This section provides an overview of the installation.
+---
+
+Setting up the requirements for uploadthing ui is straightforward. You can follow the following steps to get started.
+
+## Nextjs
+
+To get started you can use create-t3-app to scaffold a new Nextjs project. You can follow the [official guide](https://create.t3.gg/en/installation) or follow the steps below.
+
+<Stepper>
+    <StepperItem title="Scaffold a New Nextjs Project">
+        <Tabs defaultValue="npm">
+            <TabsList>
+                <TabsTrigger value="pnpm">pnpm</TabsTrigger>
+                <TabsTrigger value="npm">npm</TabsTrigger>
+                <TabsTrigger value="yarn">yarn</TabsTrigger>
+                <TabsTrigger value="bun">bun</TabsTrigger>
+            </TabsList>
+            <TabsContent value="npm">
+                ```bash
+                npm create t3-app@latest
+                ```
+            </TabsContent>
+            <TabsContent value="pnpm">
+                ```bash
+                pnpm create t3-app@latest
+                ```
+            </TabsContent>
+            <TabsContent value="yarn">
+                ```bash
+                yarn create t3-app
+                ```
+            </TabsContent>
+            <TabsContent value="bun">
+                ```bash
+                bun create t3-app@latest
+                ```
+            </TabsContent>
+        </Tabs>
+    </StepperItem>
+    <StepperItem title="Access the Project Directory">
+        After installation, navigate into the project directory to start setting up:
+        ```plaintext
+        cd <project-directory>
+        ```
+    </StepperItem>
+</Stepper>
+
+## Shadcn UI
+
+To get started you can follow the [official guide](https://ui.shadcn.com/docs/installation/next) or follow the steps below.
+
+<Stepper>
+    <StepperItem title="Initialize Shadcn UI">
+        <Tabs defaultValue="npm">
+            <TabsList>
+                <TabsTrigger value="pnpm">pnpm</TabsTrigger>
+                <TabsTrigger value="npm">npm</TabsTrigger>
+                <TabsTrigger value="yarn">yarn</TabsTrigger>
+                <TabsTrigger value="bun">bun</TabsTrigger>
+            </TabsList>
+            <TabsContent value="npm">
+                ```bash
+                npx shadcn@latest init
+                ```
+            </TabsContent>
+            <TabsContent value="pnpm">
+                ```bash
+                pnpm dlx shadcn@latest init
+                ```
+            </TabsContent>
+            <TabsContent value="yarn">
+                ```bash
+                npx shadcn@latest init
+                ```
+            </TabsContent>
+            <TabsContent value="bun">
+                ```bash
+                bunx --bun shadcn@latest init
+                ```
+            </TabsContent>
+        </Tabs>
+    </StepperItem>
+
+</Stepper>
+
+## Uploadthing
+
+To get started you can follow the [official guide](https://docs.uploadthing.com/getting-started/appdir). Make sure to create a `file router` and a `file route` for your application.
+
+<Note type="warning" title="Note about Uploadthing Components">
+  Add your uploadthing components inside `lib/uploadthing.ts` instead of
+  `utils/uploadthing.ts`. Reference: [Uploadthing
+  Components](https://docs.uploadthing.com/getting-started/appdir#create-the-upload-thing-components)
+</Note>
+
+```javascript:lib/uploadthing.ts showLineNumbers {10-11}
+import { OurFileRouter } from "@/app/api/uploadthing/core";
+import {
+  generateReactHelpers,
+  generateUploadButton,
+  generateUploadDropzone,
+} from "@uploadthing/react";
+
+export const UploadButton = generateUploadButton<OurFileRouter>();
+export const UploadDropzone = generateUploadDropzone<OurFileRouter>();
+export const { useUploadThing, uploadFiles, createUpload } =
+  generateReactHelpers<OurFileRouter>();
+```

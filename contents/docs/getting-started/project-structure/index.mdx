@@ -1,0 +1,92 @@
+---
+title: Project Structure
+description: This section provides an overview of Project Structure.
+---
+
+## Project Structure Overview
+
+### Components
+
+This folder contains all reusable uploadthing ui components. It’s structured to categorize components, making it easy to locate and manage UI elements. All uploadthing ui components are automatically added inside `components/uploadthing-ui` folder.
+
+<Files
+  items={[
+    {
+      type: "folder",
+      name: "components",
+      isOpen: true,
+      children: [
+        {
+          type: "folder",
+          name: "ui",
+          isOpen: true,
+          children: [],
+        },
+        {
+          type: "folder",
+          name: "uploadthing-ui",
+          isOpen: true,
+          children: [
+            { type: "file", name: "button-uploadthing.tsx" },
+            { type: "file", name: "button-generic-drive.tsx" },
+          ],
+        },
+      ],
+    },
+  ]}
+/>
+
+### Lib
+
+This folder contains helper functions and utilities used across the application, such as uploadthing ui types and utility functions. These utilities help keep the codebase clean and organized by separating out common functionality.
+
+<Files
+  items={[
+    {
+      type: "folder",
+      name: "lib",
+      isOpen: true,
+      children: [
+        { type: "file", name: "utils.ts" },
+        { type: "file", name: "uploadthing.ts" },
+        { type: "file", name: "uploadthing-ui-types.ts" },
+        { type: "file", name: "uploadthing-ui-utils.ts" },
+      ],
+    },
+  ]}
+/>
+
+### Stores
+
+This folder contains all the stores used in the application. It’s structured to categorize stores, making it easy to locate and manage UI elements. All uploadthing ui stores are automatically added inside `stores/uploadthing-ui` folder.
+
+<Files
+  items={[
+    {
+      type: "folder",
+      name: "stores",
+      isOpen: true,
+      children: [
+        { type: "file", name: "button-uploadthing-store.ts" },
+        { type: "file", name: "button-generic-drive-store.ts" },
+      ],
+    },
+  ]}
+/>
+
+### Hooks
+
+This folder contains all the hooks used in the application. It’s structured to categorize hooks, making it easy to locate and manage UI elements. All uploadthing & shadcn ui hooks are automatically added inside `hooks` folder.
+
+<Files
+  items={[
+    {
+      type: "folder",
+      name: "hooks",
+      isOpen: true,
+      children: [{ type: "file", name: "use-media-query.tsx" }],
+    },
+  ]}
+/>
+
+This structure organizes your project for uploadthing ui in a way that supports scalability and maintainability, making it easier to navigate and work on different sections of the components.

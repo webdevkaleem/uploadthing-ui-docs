@@ -1,0 +1,152 @@
+---
+title: Uploadthing
+description: This section previews the button uploadthing component.
+---
+
+A custom `Uploadthing` button, which is the file upload workflow copied from the uploadthings admin dashboard.
+
+<Tabs defaultValue="preview">
+
+    <TabsList>
+        <TabsTrigger value="preview">Preview</TabsTrigger>
+        <TabsTrigger value="code">Code</TabsTrigger>
+    </TabsList>
+    <TabsContent value="preview">
+        This is the preview
+    </TabsContent>
+    <TabsContent value="code">
+    This is the code
+    </TabsContent>
+
+</Tabs>
+
+## About
+
+`UTUIButtonUploadthing` is build on top of [Button](https://ui.shadcn.com/docs/components/button) and [Sonner](https://ui.shadcn.com/docs/components/sonner)
+
+## Installation - CLI
+
+<Tabs defaultValue="npm">
+
+    <TabsList>
+        <TabsTrigger value="pnpm">pnpm</TabsTrigger>
+        <TabsTrigger value="npm">npm</TabsTrigger>
+        <TabsTrigger value="yarn">yarn</TabsTrigger>
+        <TabsTrigger value="bun">bun</TabsTrigger>
+    </TabsList>
+    <TabsContent value="npm">
+        ```bash
+        npx shadcn@latest add https://uploadthing-ui.vercel.app/r/button-uploadthing.json
+        ```
+    </TabsContent>
+    <TabsContent value="pnpm">
+        ```bash
+        pnpm dlx shadcn@latest add https://uploadthing-ui.vercel.app/r/button-uploadthing.json
+        ```
+    </TabsContent>
+    <TabsContent value="yarn">
+        ```bash
+        npx shadcn@latest add https://uploadthing-ui.vercel.app/r/button-uploadthing.json
+        ```
+    </TabsContent>
+    <TabsContent value="bun">
+        ```bash
+        bunx --bun shadcn@latest add https://uploadthing-ui.vercel.app/r/button-uploadthing.json
+        ```
+    </TabsContent>
+
+</Tabs>
+
+## Usage
+
+Update inside of your `components/ui/sonner.tsx`
+
+```javascript:components/ui/sonner.tsx showLineNumbers {7}
+<Sonner
+  theme={theme as ToasterProps["theme"]}
+  className="toaster group"
+  toastOptions={{
+    classNames: {
+      toast:
+        "rounded-md group toast group-[.toaster]:bg-background group-[.toaster]:text-foreground group-[.toaster]:border-border group-[.toaster]:shadow-lg",
+      description: "group-[.toast]:text-muted-foreground",
+      actionButton:
+        "group-[.toast]:bg-primary group-[.toast]:text-primary-foreground",
+      cancelButton:
+        "group-[.toast]:bg-muted group-[.toast]:text-muted-foreground",
+    },
+  }}
+  {...props}
+/>
+```
+
+Update inside of your `tailwind.config.ts`
+
+<Note type="info" title="Note about Tailwind Config">
+  The `sm` breakpoint is used to determine the breakpoint for the sonner to
+  avoid layout shifts. It MUST be set to `600px` for now. The sonner breaks
+  otherwise.
+</Note>
+
+```javascript:tailwind.config.ts showLineNumbers {4-6}
+export default {
+  theme: {
+    extend: {
+      screens: {
+        sm: "600px",
+      },
+    },
+  },
+} satisfies Config;
+```
+
+Add inside of your `layout.tsx`
+
+```javascript
+import { Toaster } from "@/components/ui/sonner";
+```
+
+```javascript
+<Toaster expand theme="system" gap={8} />
+```
+
+Add inside of your `client` component
+
+```javascript
+import UTUIButtonUploadthing from "@/components/uploadthing-ui/button-uploadthing";
+```
+
+<Note type="note" title="Note">
+  Replace the `fileRoute` with which `api` route you want to use. `fileRoute`
+  isn't typesafe,
+</Note>
+
+```javascript
+<UTUIButtonUploadthing
+  UTUIFunctionsProps={{
+    fileRoute: "imageUploader",
+    onBeforeUploadBegin: (files) => {
+      // Your additional code here
+      console.log(files);
+
+      return files;
+    },
+    onUploadBegin: (fileName) => {
+      // Your additional code here
+      console.log(fileName);
+    },
+    onUploadProgress: (progress) => {
+      // Your additional code here
+      console.log(progress);
+    },
+    onClientUploadComplete: (res) => {
+      // Your additional code here
+      console.log(res);
+    },
+    onUploadError: (error) => {
+      // Your additional code here
+      console.log(error);
+    },
+  }}
+/>
+```
