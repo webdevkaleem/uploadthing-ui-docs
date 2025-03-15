@@ -1,27 +1,18 @@
+import { UTUIFileStatus, UTUIUploadFile } from "@/lib/uploadthing-ui-types";
 import { create } from "zustand";
 
 // Local Imports
 
 // Body
-export type FileStatus = "pending" | "uploading" | "complete" | "error";
-
-export interface UploadFile {
-  id: string;
-  file: File;
-  status: FileStatus;
-  url?: string;
-  createdAt: Date;
-}
 
 interface FilesState {
-  historicFiles: UploadFile[];
-  setFiles: (newFiles: UploadFile[]) => void;
-  updateFileStatus: (id: string, status: FileStatus, url?: string) => void;
+  historicFiles: UTUIUploadFile[];
+  setFiles: (newFiles: UTUIUploadFile[]) => void;
+  updateFileStatus: (id: string, status: UTUIFileStatus, url?: string) => void;
   removeFile: (id: string) => void;
 }
 
 export const useUploadthingStore = create<FilesState>()((set) => ({
-  files: [],
   historicFiles: [],
   setFiles: (newFiles) =>
     set((state) => {
@@ -34,7 +25,6 @@ export const useUploadthingStore = create<FilesState>()((set) => ({
       );
 
       return {
-        files: newFiles,
         historicFiles: [...state.historicFiles, ...newHistoricFiles],
       };
     }),
