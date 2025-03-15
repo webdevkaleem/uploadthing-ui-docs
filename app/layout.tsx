@@ -3,6 +3,7 @@ import { ThemeProvider } from "@/components/contexts/theme-provider";
 import { Navbar } from "@/components/navbar";
 import { Space_Mono, Space_Grotesk } from "next/font/google";
 import { Footer } from "@/components/footer";
+import { Toaster } from "@/components/ui/sonner";
 import "@/styles/globals.css";
 
 const sansFont = Space_Grotesk({
@@ -52,6 +53,7 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <Navbar />
+          <Toaster expand theme="system" gap={8} />
           <main className="sm:container mx-auto w-[90vw] h-auto scroll-smooth">
             {children}
           </main>

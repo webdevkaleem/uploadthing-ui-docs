@@ -19,7 +19,6 @@ import Note from "@/components/markdown/note";
 import Outlet from "@/components/markdown/outlet";
 import Pre from "@/components/markdown/pre";
 import { Stepper, StepperItem } from "@/components/markdown/stepper";
-import Testing from "@/components/markdown/testing";
 import {
   Table,
   TableBody,
@@ -29,6 +28,8 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import PreviewUTUIButtonUploadthing from "@/components/preview-uploadthing-ui/button/button-uploadthing";
+import PreviewUTUIButtonGenericDrive from "@/components/preview-uploadthing-ui/button/button-generic-drive";
 
 // add custom components
 const components = {
@@ -50,7 +51,8 @@ const components = {
   tr: TableRow,
   tbody: TableBody,
   t: TableCell,
-  Testing,
+  PreviewUTUIButtonUploadthing,
+  PreviewUTUIButtonGenericDrive,
 };
 
 // can be used for other pages like blogs, Guides etc
