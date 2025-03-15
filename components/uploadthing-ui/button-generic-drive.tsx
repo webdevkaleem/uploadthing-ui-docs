@@ -70,7 +70,7 @@ export default function UTUIButtonGenericDrive({
     .join(",");
 
   const [abortSignal, setAbortSignal] = useState<AbortSignal | undefined>(
-    undefined
+    undefined,
   );
 
   // [3] Handlers
@@ -155,19 +155,19 @@ function FileModel({
   } = useGenericDriveStore();
   const [stopConfirmationModel, setStopConfirmationModel] = useState(false);
   const isDesktop = useMediaQuery(
-    `(min-width: ${isDesktopMinWidth ? isDesktopMinWidth : "768px"})`
+    `(min-width: ${isDesktopMinWidth ? isDesktopMinWidth : "768px"})`,
   );
 
   const handleStatusChange = useCallback(
     (id: string, status: UTUIFileStatus, url?: string) => {
       updateFileStatus(id, status, url);
     },
-    [updateFileStatus]
+    [updateFileStatus],
   );
 
   // [2] Derived State
   const isUploadComplete = files.every(
-    (file) => file.status === "complete" || file.status === "error"
+    (file) => file.status === "complete" || file.status === "error",
   );
 
   // [3] Handlers
@@ -347,7 +347,7 @@ function StopUploadConfirmation({
   onStopTransfers: () => void;
 }) {
   const isDesktop = useMediaQuery(
-    `(min-width: ${isDesktopMinWidth ? isDesktopMinWidth : "768px"})`
+    `(min-width: ${isDesktopMinWidth ? isDesktopMinWidth : "768px"})`,
   );
 
   // [1] JSX (Desktop)
@@ -478,7 +478,7 @@ function FileRow({
       },
       onBeforeUploadBegin: UTUIFunctionsProps.onBeforeUploadBegin,
       onUploadBegin: UTUIFunctionsProps.onUploadBegin,
-    }
+    },
   );
 
   // [3] Effects
@@ -508,8 +508,8 @@ function FileRow({
             status === "complete"
               ? "success"
               : status === "error"
-              ? "destructive"
-              : "default"
+                ? "destructive"
+                : "default"
           }
         >
           {capitalizeFirstLetter(status)}

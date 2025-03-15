@@ -55,7 +55,7 @@ export default function UTUIButtonUploadthing({
           fileObj,
           status: "pending" as UTUIFileStatus, // Use type assertion here
           createdAt: new Date(),
-        }))
+        })),
       );
 
       // Reset the input to allow selecting the same files again
@@ -109,7 +109,7 @@ function DisplayingToasts({
   const hasStartedUpload = useRef(false);
   const [progress, setProgress] = useState(0);
   const [toastId, setToastId] = useState<string | number | undefined>(
-    undefined
+    undefined,
   );
   const { updateFileStatus, removeFile } = useUploadthingStore();
 
@@ -144,7 +144,7 @@ function DisplayingToasts({
       },
       onBeforeUploadBegin: UTUIFunctionsProps.onBeforeUploadBegin,
       onUploadBegin: UTUIFunctionsProps.onUploadBegin,
-    }
+    },
   );
 
   // [3] Effects
@@ -162,8 +162,8 @@ function DisplayingToasts({
           () => <ToastComponent progress={progress} uploadFile={uploadFile} />,
           {
             duration: Infinity,
-          }
-        )
+          },
+        ),
       );
 
       return;
@@ -200,7 +200,8 @@ function DisplayingToasts({
 
       return;
     }
-  }, [uploadFile, toastId, removeFile]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [uploadFile, toastId, toast, removeFile]);
 
   // When a file starts its uploading process
   useEffect(() => {
@@ -208,10 +209,11 @@ function DisplayingToasts({
       // Update the progress inside the toast
       toast.custom(
         () => <ToastComponent progress={progress} uploadFile={uploadFile} />,
-        { id: toastId }
+        { id: toastId },
       );
     }
-  }, [progress, toastId, isUploading, uploadFile]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [progress, toastId, isUploading]);
 
   return <div className="hidden">{uploadFile.id}</div>;
 }
