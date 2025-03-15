@@ -1,0 +1,90 @@
+---
+title: Generic Drive
+description: This section previews the dropzone generic drive component.
+---
+
+A custom `Generic Drive` dropzone, which is the file upload workflow copied from drive upload applications like proton and gmail drive.
+
+## Preview
+
+<PreviewUTUIDropzoneGenericDrive />
+
+## About
+
+`UTUIDropzoneGenericDrive` is build on top of [Button](https://ui.shadcn.com/docs/components/button), and [Separator](https://ui.shadcn.com/docs/components/separator)
+
+## Installation - CLI
+
+<Tabs defaultValue="npm">
+
+    <TabsList>
+        <TabsTrigger value="pnpm">pnpm</TabsTrigger>
+        <TabsTrigger value="npm">npm</TabsTrigger>
+        <TabsTrigger value="yarn">yarn</TabsTrigger>
+        <TabsTrigger value="bun">bun</TabsTrigger>
+    </TabsList>
+    <TabsContent value="npm">
+        ```bash
+        npx shadcn@latest add https://uploadthing-ui.vercel.app/r/dropzone-generic-drive.json
+        ```
+    </TabsContent>
+    <TabsContent value="pnpm">
+        ```bash
+        pnpm dlx shadcn@latest add https://uploadthing-ui.vercel.app/r/dropzone-generic-drive.json
+        ```
+    </TabsContent>
+    <TabsContent value="yarn">
+        ```bash
+        npx shadcn@latest add https://uploadthing-ui.vercel.app/r/dropzone-generic-drive.json
+        ```
+    </TabsContent>
+    <TabsContent value="bun">
+        ```bash
+        bunx --bun shadcn@latest add https://uploadthing-ui.vercel.app/r/dropzone-generic-drive.json
+        ```
+    </TabsContent>
+
+</Tabs>
+
+## Usage
+
+Add inside of your `client` component
+
+```javascript
+import UTUIDropzoneGenericDrive from "@/components/uploadthing-ui/dropzone-generic-drive";
+```
+
+<Note type="note" title="Note">
+  Replace the `fileRoute` with which `api` route you want to use. `fileRoute`
+  isn't typesafe,
+</Note>
+
+```javascript
+<UTUIDropzoneGenericDrive
+  UTUIFunctionsProps={{
+    fileRoute: "imageUploader",
+    onBeforeUploadBegin: (files) => {
+      // Your additional code here
+      console.log(files);
+
+      return files;
+    },
+    onUploadBegin: (fileName) => {
+      // Your additional code here
+      console.log(fileName);
+    },
+    onUploadProgress: (progress) => {
+      // Your additional code here
+      console.log(progress);
+    },
+    onClientUploadComplete: (res) => {
+      // Your additional code here
+      console.log(res);
+    },
+    onUploadError: (error) => {
+      // Your additional code here
+      console.log(error);
+    },
+  }}
+/>
+```

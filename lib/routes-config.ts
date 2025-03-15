@@ -31,6 +31,12 @@ export const ROUTES: EachRoute[] = [
       { title: "Generic Drive", href: "/generic-drive" },
     ],
   },
+  {
+    title: "Dropzones",
+    href: "/dropzones",
+    noLink: true,
+    items: [{ title: "Generic Drive", href: "/generic-drive" }],
+  },
 ];
 
 type Page = { title: string; href: string };
