@@ -40,10 +40,10 @@ export default function UTUIDropzoneGenericDrive({
           file: fileObj,
           status: "pending" as UTUIFileStatus,
           createdAt: new Date(),
-        })),
+        }))
       );
     },
-    [setFiles],
+    [setFiles]
   );
 
   // [2] Uploadthing
@@ -61,7 +61,7 @@ export default function UTUIDropzoneGenericDrive({
   const { getRootProps, getInputProps } = useDropzone({
     onDrop,
     accept: generateClientDropzoneAccept(
-      generatePermittedFileTypes(routeConfig).fileTypes,
+      generatePermittedFileTypes(routeConfig).fileTypes
     ),
   });
 
@@ -72,7 +72,7 @@ export default function UTUIDropzoneGenericDrive({
   });
 
   const allFilesUploaded = historicFiles.every(
-    (file) => file.status === "complete" || file.status === "error",
+    (file) => file.status === "complete" || file.status === "error"
   );
 
   // [4] Conditionals checks
@@ -80,7 +80,7 @@ export default function UTUIDropzoneGenericDrive({
   if (!fileRouteOptions)
     return (
       <div className="flex flex-col gap-4 text-sm">
-        Please add a correct file route
+        <Loader2 className="animate-spin stroke-1" />
       </div>
     );
 
@@ -90,7 +90,7 @@ export default function UTUIDropzoneGenericDrive({
 
   // [5] JSX
   return (
-    <div className="flex w-2/3 flex-col gap-4 text-sm">
+    <div className="flex w-full flex-col gap-4 text-sm">
       <Title />
       <input {...getInputProps()} />
       {/* Limit the file dropzone area */}
@@ -160,10 +160,10 @@ function FileContainer({
   const { updateFileStatus, removeFile } = useDropzoneGenericDriveStore();
   const abortControllerRef = useRef<AbortController | null>(null);
   const [errorMessage, setErrorMessage] = useState<string | undefined>(
-    undefined,
+    undefined
   );
   const [abortSignal, setAbortSignal] = useState<AbortSignal | undefined>(
-    undefined,
+    undefined
   );
 
   // [2] Uploadthing
@@ -207,7 +207,7 @@ function FileContainer({
         return files;
       },
       onUploadBegin: UTUIFunctionsProps.onUploadBegin,
-    },
+    }
   );
 
   // [3] Handlers
