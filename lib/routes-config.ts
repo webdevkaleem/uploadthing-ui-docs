@@ -26,10 +26,7 @@ export const ROUTES: EachRoute[] = [
     title: "Buttons",
     href: "/buttons",
     noLink: true,
-    items: [
-      { title: "Uploadthing", href: "/uploadthing" },
-      { title: "Generic Drive", href: "/generic-drive" },
-    ],
+    items: [{ title: "Uploadthing", href: "/uploadthing" }],
   },
   {
     title: "Dropzones",
