@@ -18,7 +18,7 @@ export function Footer() {
             . The source code is available on{" "}
             <Link
               className="px-1 underline underline-offset-2"
-              href="https://github.com/webdevkaleem/uploadthing-ui-docs"
+              href="https://github.com/webdevkaleem/uploadthing-ui"
             >
               GitHub
             </Link>

@@ -15,7 +15,7 @@ export const NAVLINKS = [
   },
   {
     title: "Community",
-    href: "https://github.com/webdevkaleem/uploadthing-ui-docs/discussions",
+    href: "https://github.com/webdevkaleem/uploadthing-ui/discussions",
   },
 ];
 
@@ -46,7 +46,7 @@ export function Navbar() {
           <div className="flex items-center justify-between sm:gap-2">
             <div className="flex ml-4 sm:ml-0">
               <Link
-                href="https://github.com/webdevkaleem/uploadthing-ui-docs"
+                href="https://github.com/webdevkaleem/uploadthing-ui"
                 className={buttonVariants({
                   variant: "ghost",
                   size: "icon",

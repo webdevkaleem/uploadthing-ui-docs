@@ -24,7 +24,7 @@ export const metadata: Metadata = {
   title: "Uploadthing UI - Docs",
   metadataBase: new URL("https://docs-uploadthing-ui.vercel.app/"),
   description:
-    "This comprehensive documentation for uploadthing ui covers all the components, hooks, and utilities. Github link: https://github.com/webdevkaleem/uploadthing-ui-docs",
+    "This comprehensive documentation for uploadthing ui covers all the components, hooks, and utilities. Github link: https://github.com/webdevkaleem/uploadthing-ui",
   icons: [{ rel: "icon", url: "/icon.ico" }],
 };
 
