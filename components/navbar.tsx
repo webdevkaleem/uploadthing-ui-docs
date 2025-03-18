@@ -6,7 +6,7 @@ import Link from "next/link";
 import Anchor from "./anchor";
 import { SheetLeftbar } from "./leftbar";
 import { buttonVariants } from "./ui/button";
-// import AlgoliaSearch from "./algolia-search";
+import AlgoliaSearch from "./algolia-search";
 
 export const NAVLINKS = [
   {
@@ -19,11 +19,11 @@ export const NAVLINKS = [
   },
 ];
 
-// const algolia_props = {
-//   appId: process.env.ALGOLIA_APP_ID!,
-//   indexName: process.env.ALGOLIA_INDEX!,
-//   apiKey: process.env.ALGOLIA_SEARCH_API_KEY!,
-// };
+const algolia_props = {
+  appId: process.env.ALGOLIA_APP_ID!,
+  indexName: process.env.ALGOLIA_INDEX!,
+  apiKey: process.env.ALGOLIA_SEARCH_API_KEY!,
+};
 
 export function Navbar() {
   return (
@@ -42,7 +42,7 @@ export function Navbar() {
         </div>
 
         <div className="flex items-center sm:justify-normal justify-between sm:gap-3 ml-1 sm:w-fit w-[90%]">
-          {/* <AlgoliaSearch {...algolia_props} /> */}
+          <AlgoliaSearch {...algolia_props} />
           <div className="flex items-center justify-between sm:gap-2">
             <div className="flex ml-4 sm:ml-0">
               <Link
@@ -74,7 +74,7 @@ export function Navbar() {
 
 export function Logo() {
   return (
-    <Link href="/" className="flex items-center gap-2.5">
+    <Link href="/" className="flex items-center gap-2.5 min-w-fit truncate">
       <div className="text-md font-bold font-code">
         <span>Uploadthing </span>
         <span className="text-primary">UI</span>
