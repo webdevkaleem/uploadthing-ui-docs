@@ -28,8 +28,9 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import PreviewUTUIButtonUploadthing from "@/components/preview-uploadthing-ui/button/button-uploadthing";
-import PreviewUTUIDropzoneGenericDrive from "@/components/preview-uploadthing-ui/dropzone/dropzone-generic-drive";
+import PreviewUTUIButtonUploadthing from "@/components/preview-uploadthing-ui/button/uploadthing/button-uploadthing";
+import PreviewUTUIDropzoneGenericDrive from "@/components/preview-uploadthing-ui/dropzone/generic-drive/dropzone-generic-drive";
+import DisplayDownloads from "@/components/preview-uploadthing-ui/display-downloads";
 
 // add custom components
 const components = {
@@ -53,6 +54,7 @@ const components = {
   t: TableCell,
   PreviewUTUIButtonUploadthing,
   PreviewUTUIDropzoneGenericDrive,
+  DisplayDownloads,
 };
 
 // can be used for other pages like blogs, Guides etc

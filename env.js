@@ -13,6 +13,8 @@ export const env = createEnv({
     ALGOLIA_APP_ID: z.string(),
     ALGOLIA_INDEX: z.string(),
     ALGOLIA_SEARCH_API_KEY: z.string(),
+    UPSTASH_REDIS_REST_URL: z.string(),
+    UPSTASH_REDIS_REST_TOKEN: z.string()
   },
   /*
    * Environment variables available on the client (and server).
@@ -34,6 +36,8 @@ export const env = createEnv({
     ALGOLIA_APP_ID: process.env.ALGOLIA_APP_ID,
     ALGOLIA_INDEX: process.env.ALGOLIA_INDEX,
     ALGOLIA_SEARCH_API_KEY: process.env.ALGOLIA_SEARCH_API_KEY,
+    UPSTASH_REDIS_REST_URL: process.env.UPSTASH_REDIS_REST_URL,
+    UPSTASH_REDIS_REST_TOKEN: process.env.UPSTASH_REDIS_REST_TOKEN,
     NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY:
       process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY,
   },
