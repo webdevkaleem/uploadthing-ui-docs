@@ -41,10 +41,10 @@ export default function UTUIDropzoneGenericDrive({
           file: fileObj,
           status: "pending" as UTUIFileStatus,
           createdAt: new Date(),
-        }))
+        })),
       );
     },
-    [setFiles]
+    [setFiles],
   );
 
   // [2] Uploadthing
@@ -62,7 +62,7 @@ export default function UTUIDropzoneGenericDrive({
   const { getRootProps, getInputProps } = useDropzone({
     onDrop,
     accept: generateClientDropzoneAccept(
-      generatePermittedFileTypes(routeConfig).fileTypes
+      generatePermittedFileTypes(routeConfig).fileTypes,
     ),
   });
 
@@ -73,7 +73,7 @@ export default function UTUIDropzoneGenericDrive({
   });
 
   const allFilesUploaded = historicFiles.every(
-    (file) => file.status === "complete" || file.status === "error"
+    (file) => file.status === "complete" || file.status === "error",
   );
 
   // [4] Conditionals checks
@@ -162,10 +162,10 @@ function FileContainer({
   const [progress, setProgress] = useState(0);
   const { updateFileStatus, removeFile } = useDropzoneGenericDriveStore();
   const abortControllerRef = useRef<AbortController | null>(
-    new AbortController()
+    new AbortController(),
   );
   const [errorMessage, setErrorMessage] = useState<string | undefined>(
-    undefined
+    undefined,
   );
 
   // [2] Uploadthing
@@ -205,7 +205,7 @@ function FileContainer({
         return files;
       },
       onUploadBegin: UTUIFunctionsProps.onUploadBegin,
-    }
+    },
   );
 
   // [3] Handlers
@@ -222,7 +222,11 @@ function FileContainer({
   // [4] Effects
   // When a file isn't uploading
   useEffect(() => {
-    if (!hasStartedUpload.current && !isUploading) {
+    if (
+      !hasStartedUpload.current &&
+      !isUploading &&
+      uploadFile.status === "pending"
+    ) {
       hasStartedUpload.current = true;
 
       startUpload([uploadFile.file]).catch((error: UploadThingError) => {
