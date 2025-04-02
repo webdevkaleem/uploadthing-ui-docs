@@ -21,7 +21,7 @@ export default async function DisplayDownloads({
     );
   }
   return (
-    <Badge className="absolute right-5 top-5 gap-2">
+    <Badge className="absolute right-4 top-4 gap-2">
       <Download className="w-4" />
       <span>{views}</span>
     </Badge>
